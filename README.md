@@ -4,11 +4,11 @@
 
 ## ✨ Core Values
 
-🔒 **Security First** - CSRF protection, secure session management, and bcrypt password hashing  
-⚡ **Performance** - Built on Go's efficient `net/http` with minimal external dependencies  
-🔧 **Developer Experience** - Hot reloading, comprehensive testing, and Docker support  
-🎯 **Flexibility** - Supports both password and OTP-based authentication flows  
-🏢 **Multi-Tenant** - Complete tenant isolation with domain-based routing  
+🔒 **Security First** - CSRF protection, secure session management, and bcrypt password hashing
+⚡ **Performance** - Built on Go's efficient `net/http` with minimal external dependencies
+🔧 **Developer Experience** - Hot reloading, comprehensive testing, and Docker support
+🎯 **Flexibility** - Supports both password and OTP-based authentication flows
+🏢 **Multi-Tenant** - Complete tenant isolation with domain-based routing
 📦 **Production Ready** - Rate limiting, proper error handling, and database migrations
 
 ## 🎯 Key Features
@@ -31,7 +31,9 @@
 
 ## 🚀 Quick Start
 
-### 1. Start the Application
+For a production deployment please check the [deployment guide](./deployment/production/WORKFLOW.md).
+
+### 1. Start the Application for development
 ```bash
 # Start database and backend with hot reloading
 docker compose --env-file .env up -d
@@ -94,21 +96,6 @@ docker compose logs
 docker compose down --rmi local -v
 ```
 
-## 📁 Project Structure
-
-```
-├── internal/
-│   ├── api/          # HTTP handlers and routing
-│   ├── auth/         # Authentication service and repository
-│   ├── db/           # Database migrations and queries
-│   ├── tenant/       # Multi-tenant management and middleware
-│   └── notes/        # Notes management features
-├── test/             # Integration tests and Docker setup
-├── docs/             # Documentation (auth workflow, etc.)
-├── deployment/       # Production deployment configurations
-└── docker compose.yml
-```
-
 ## 🏢 Multi-Tenant Architecture
 
 The application supports complete tenant isolation:
@@ -161,7 +148,3 @@ Traditional email/password authentication with secure session management.
 Email-based one-time password authentication for enhanced security.
 
 > **Detailed authentication workflow**: See [docs/auth_workflow.md](./docs/auth_workflow.md)
-
----
-
-**Ready to build something amazing?** This backend provides a solid foundation for any application requiring secure authentication and data management. 🎉
