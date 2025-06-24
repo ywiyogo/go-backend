@@ -1,4 +1,4 @@
-.PHONY: build, run, test, unit-test, integration-test, integration-test-verbose, integration-test-coverage, setup-test-env, cleanup-test-env, migrate-up, migrate-down, migrate-status
+.PHONY: build, build-prod, build-push, run, test, unit-test, integration-test, integration-test-verbose, integration-test-coverage, setup-test-env, cleanup-test-env, migrate-up, migrate-down, migrate-status
 
 build:
 	@go mod tidy
@@ -9,6 +9,10 @@ build-prod:
 	@go mod tidy
 	@mkdir -p tmp
 	@CGO_ENABLED=${CGO_ENABLED:-0} GOOS=${GOOS:-linux} GOARCH=${GOARCH:-amd64} GOAMD64=${GOAMD64:-v3} go build -o tmp/gobackend main.go
+
+build-push:
+	@echo "Build and push docker production image..."
+	@cd deployment/production && ./build-push.sh --tag-with-commit
 
 run:
 	@./tmp/main

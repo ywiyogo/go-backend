@@ -12,7 +12,7 @@ cd gobackend/deployment/production
 cp .env.example .env
 # Edit .env with your production values:
 # - Database credentials
-# - SMTP settings  
+# - SMTP settings
 # - Docker Hub username
 
 # Login to Docker Hub
@@ -31,7 +31,7 @@ git commit -m "Add new feature"
 
 # Build & Push (from deployment/production)
 cd deployment/production
-./build-and-push.sh --tag-with-commit
+./build-push.sh --tag-with-commit
 
 # Deploy on VPS (SSH to your server)
 ssh user@your-vps
@@ -48,7 +48,7 @@ gobackend/
 └── deployment/production/
     ├── .env                          # Production (for building & deploying)
     ├── .env.example                  # Template
-    ├── build-and-push.sh             # Build script (uses production .env)
+    ├── build-push.sh             # Build script (uses production .env)
     └── deploy.sh                     # Deploy script (uses production .env)
 ```
 
@@ -59,13 +59,13 @@ gobackend/
 cd deployment/production
 
 # Quick build & push
-./build-and-push.sh
+./build-push.sh
 
 # Production build with version
-./build-and-push.sh --tag-with-commit
+./build-push.sh --tag-with-commit
 
 # Test build only
-./build-and-push.sh --no-push
+./build-push.sh --no-push
 ```
 
 ### VPS (Deploy)
@@ -106,11 +106,11 @@ cd gobackend/
 # Afternoon: Ready to deploy
 cd deployment/production
 # Use production .env for building
-./build-and-push.sh --tag-with-commit
+./build-push.sh --tag-with-commit
 
 # Deploy to VPS
 ssh vps
-cd app/deployment/production  
+cd app/deployment/production
 git pull && ./deploy.sh
 ```
 

@@ -31,7 +31,11 @@
 
 ## 🚀 Quick Start
 
-For a production deployment please check the [deployment guide](./deployment/production/WORKFLOW.md).
+For a production deployment please check the [deployment guide](./deployment/production/workflow.md). For building the docker production image and pushing it to the docker hub run:
+
+```bash
+make build-push
+```
 
 ### 1. Start the Application for development
 ```bash
