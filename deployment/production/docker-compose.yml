@@ -1,3 +1,5 @@
+name: gb
+
 services:
   db:
     image: postgres:17
@@ -85,5 +87,3 @@ services:
 
 volumes:
   gobackend-pgdata:
-  # gobackend-caddy-data:
-  # gobackend-caddy-config:
